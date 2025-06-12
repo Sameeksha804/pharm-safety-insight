@@ -1,8 +1,7 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Heart, Brain, Kidney, Lungs, Eye, Liver } from 'lucide-react';
+import { Heart, Brain, Activity, Lungs, Eye, Coffee } from 'lucide-react';
 
 export const BodySystemVisualization: React.FC = () => {
   const [selectedSystem, setSelectedSystem] = useState<string | null>(null);
@@ -35,7 +34,7 @@ export const BodySystemVisualization: React.FC = () => {
     {
       id: 'renal',
       name: 'Renal',
-      icon: Kidney,
+      icon: Activity,
       position: { top: '45%', left: '35%' },
       risk: 'low',
       description: 'Kidneys and urinary system - monitors waste elimination and fluid balance'
@@ -43,7 +42,7 @@ export const BodySystemVisualization: React.FC = () => {
     {
       id: 'hepatic',
       name: 'Hepatic',
-      icon: Liver,
+      icon: Coffee,
       position: { top: '35%', left: '55%' },
       risk: 'medium',
       description: 'Liver and metabolism - monitors drug processing and detoxification'
