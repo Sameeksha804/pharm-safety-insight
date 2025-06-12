@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { AlertTriangle, CheckCircle, XCircle, Activity, Heart, Brain, Stomach } from 'lucide-react';
+import { AlertTriangle, CheckCircle, XCircle, Activity, Heart, Brain, Coffee } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
@@ -51,7 +50,7 @@ export const InteractionResults: React.FC<InteractionResultsProps> = ({ result }
       case 'central nervous system':
         return <Brain className="w-5 h-5" />;
       case 'gastrointestinal':
-        return <Stomach className="w-5 h-5" />;
+        return <Coffee className="w-5 h-5" />;
       default:
         return <Activity className="w-5 h-5" />;
     }
