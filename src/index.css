@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,20 +7,20 @@
 
 @layer base {
   :root {
-    --background: 247 253 255; /* Very light cyan-blue */
-    --foreground: 15 41 56; /* Deep teal-blue */
+    --background: 241 249 255; /* Light blue background #f1f9ff */
+    --foreground: 9 93 126; /* Dark blue text #095d7e */
 
     --card: 255 255 255;
-    --card-foreground: 15 41 56;
+    --card-foreground: 9 93 126; /* Dark blue text */
 
-    --popover: 255 255 255;
-    --popover-foreground: 15 41 56;
+    --popover: 229 231 235; /* Light grey */
+    --popover-foreground: 9 93 126; /* Dark blue text */
 
     --primary: 14 165 233; /* Sky blue - pharmaceutical */
     --primary-foreground: 255 255 255;
 
     --secondary: 226 253 251; /* Light teal */
-    --secondary-foreground: 15 41 56;
+    --secondary-foreground: 9 93 126; /* Dark blue text */
 
     --muted: 240 253 250; /* Subtle mint */
     --muted-foreground: 71 85 105;
@@ -40,7 +41,7 @@
     --biotech-primary: 14 165 233; /* Sky blue */
     --biotech-secondary: 16 185 129; /* Emerald green */
     --biotech-accent: 168 85 247; /* Purple for DNA */
-    --biotech-warning: 255 255 255; /* Changed from amber to white */
+    --biotech-warning: 241 249 255; /* Changed to light blue #f1f9ff */
     --biotech-danger: 239 68 68; /* Red */
     --biotech-safe: 34 197 94; /* Green */
   }
@@ -103,7 +104,9 @@
   }
 
   .safety-caution {
-    @apply bg-white border-gray-200 text-gray-800; /* Changed from yellow to white */
+    background-color: rgb(241 249 255); /* Light blue background */
+    @apply border-gray-200;
+    color: rgb(9 93 126); /* Dark blue text */
   }
 
   .safety-danger {
