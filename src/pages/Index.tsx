@@ -1,13 +1,18 @@
 
 import React, { useState } from 'react';
-import { Search, AlertCircle, Zap, Atom, Shield, Beaker, Heart } from 'lucide-react';
+import { Search, AlertCircle, Zap, Atom } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Header } from '@/components/Header';
+import { HeroSection } from '@/components/HeroSection';
+import { StatsCards } from '@/components/StatsCards';
 import { DrugSearchInput } from '@/components/DrugSearchInput';
 import { InteractionResults } from '@/components/InteractionResults';
 import { LoadingSpinner } from '@/components/LoadingSpinner';
+import { InteractiveChart } from '@/components/InteractiveChart';
+import { BodySystemVisualization } from '@/components/BodySystemVisualization';
+import { DataTable } from '@/components/DataTable';
 import { Drug, AnalysisResult } from '@/types/drug';
 import { DrugInteractionService } from '@/services/drugDatabase';
 
@@ -61,20 +66,18 @@ const Index: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background molecular-bg">
+    <div className="min-h-screen bg-background">
       <Header />
       
+      {/* Hero Section */}
+      <HeroSection />
+      
       <main className="container mx-auto px-4 py-8 space-y-8">
-        {/* Hero Section */}
-        <div className="text-center space-y-4 py-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-            Analyze Drug Interactions
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Enter two medications below to get comprehensive safety analysis, 
-            interaction warnings, and clinical recommendations.
-          </p>
-        </div>
+        {/* Stats Cards */}
+        <StatsCards />
+
+        {/* Interactive Charts */}
+        {!analysisResult && !isAnalyzing && <InteractiveChart />}
 
         {/* Search Interface */}
         <Card className="biotech-card max-w-4xl mx-auto">
@@ -147,40 +150,13 @@ const Index: React.FC = () => {
           <InteractionResults result={analysisResult} />
         )}
 
-        {/* Info Cards */}
-        {!analysisResult && !isAnalyzing && (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <Card className="biotech-card text-center">
-              <CardContent className="pt-6">
-                <Shield className="w-12 h-12 text-biotech-safe mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">FDA-Approved Data</h3>
-                <p className="text-sm text-muted-foreground">
-                  Analysis based on verified pharmaceutical databases and clinical studies.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="biotech-card text-center">
-              <CardContent className="pt-6">
-                <Beaker className="w-12 h-12 text-biotech-primary mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">Advanced Algorithm</h3>
-                <p className="text-sm text-muted-foreground">
-                  AI-powered analysis considering molecular mechanisms and clinical pathways.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="biotech-card text-center">
-              <CardContent className="pt-6">
-                <Heart className="w-12 h-12 text-biotech-secondary mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">Patient Safety</h3>
-                <p className="text-sm text-muted-foreground">
-                  Comprehensive safety recommendations for healthcare providers.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
+        {/* Body System Visualization */}
+        {analysisResult && !isAnalyzing && (
+          <BodySystemVisualization />
         )}
+
+        {/* Data Table */}
+        {!analysisResult && !isAnalyzing && <DataTable />}
 
         {/* Disclaimer */}
         <div className="max-w-4xl mx-auto">
