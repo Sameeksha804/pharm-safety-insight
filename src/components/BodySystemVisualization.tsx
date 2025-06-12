@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Heart, Brain, Activity, Lungs, Eye, Coffee } from 'lucide-react';
+import { Heart, Brain, Activity, Eye, Coffee } from 'lucide-react';
 
 export const BodySystemVisualization: React.FC = () => {
   const [selectedSystem, setSelectedSystem] = useState<string | null>(null);
@@ -26,7 +26,7 @@ export const BodySystemVisualization: React.FC = () => {
     {
       id: 'respiratory',
       name: 'Respiratory',
-      icon: Lungs,
+      icon: Activity,
       position: { top: '25%', left: '35%' },
       risk: 'medium',
       description: 'Lungs and airways - monitors breathing patterns and oxygen levels'
